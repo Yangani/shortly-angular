@@ -39,15 +39,12 @@ angular.module('shortly', [
     })
 
     // $locationProvider.html5Mode(true);
-
-
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 })
 .factory('AttachTokens', function ($window) {
-  // this is an $httpInterceptor
-  // its job is to stop all out going request
+  // this is an $httpInterceptor its job is to stop all out going request
   // then look in local storage and find the user's token
   // then add it to the header so the server can validate the request
   var attach = {

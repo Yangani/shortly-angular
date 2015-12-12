@@ -1,5 +1,53 @@
-<div id='Links'>
-<span><h2>Links</h2></span> <br>
-  <head>Carl is Awesome.....</head>
+<div class='container navigation hidden-xs'>
+  <div class="divInline">
+    <form class="form-inline" ng-submit="addLink()">
+      <button class="btn btn-primary" >Go</button>
+      <input class="form-control input" type="url"
+        placeholder="Enter new link here" ng-model="url">
+    </form>
+  </div>
+  <div class="divInline">
+    <form class="form-inline">
+      <input class="form-control input" type="text" placeholder="Filter links" ng-model="searchFilter"/>
+    </form>
+  </div>
+  <div class="divInline">
+  <a href='/#signout' class='signout'><button class="btn btn-danger" ng-click="signout()">Signout</button></a>
+  </div>
 </div>
+
+<div class='container navigation-xs visible-xs hidden-lg'>
+  <div class="divInline">
+    <form class="form-inline" ng-submit="addLink()">
+      <button class="btn btn-primary" >Submit</button>
+      <input class="form-control input" type="url"
+        placeholder="Enter new link here" ng-model="url">
+    </form>
+  </div>
+  <div class="divInline divInLine-bottom">
+    <form class="form-inline">
+      <input class="form-control input" type="text" placeholder="Filter links" ng-model="searchFilter"/>
+    </form>
+  </div>
+  <div class="divInline">
+  <a href='/#signout' class='signout'><button class="btn btn-danger" ng-click="signout()">Signout</button></a>
+  </div>
+</div>
+
+
+<div class='container'>
+  <div ng-repeat="link in data.links | filter: searchFilter | orderBy: '-visits'" class="link fx-fade-down fx-easing-bounce">
+    <img src='../assets/redirect_icon.png'/>
+    <div class='info'>
+      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+      <div class='title'>{{link.title}}</div>
+      <div class='original'>{{link.url}}</div>
+      <a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
 

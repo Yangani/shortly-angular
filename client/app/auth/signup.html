@@ -1,9 +1,28 @@
+<div class="container">
+<div class="col-md-4 col-md-offset-4 containermargin">
 <div id='signup'>
-  <h1>signup</h1>
+  <h1>Sign Up</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+    <input type='text' class="form-control" placeholder="Enter a Username" ng-model='user.username' name="username" ng-minlength="3" ng-maxlength="10">
+    <input type="password" class="form-control" placeholder="Enter a Password" ng-model='user.password' name="password" ng-minlength="3" ng-maxlength="10">
+    <button class="btn btn-primary">Sign Up</button>
   </form>
-  <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+  <a href="/#signin">Already have an account? <strong>Sign in</strong> ...</a>
+</div>
+
+<div role="alert">
+  <span class="validation-error" ng-show="signupForm.username.$error.minlength">
+    Username too short!</span>
+  <span class="validation-error" ng-show="signupForm.username.$error.maxlength">
+    Username too long!</span>
+</div>
+
+<div role="alert">
+  <span class="validation-error" ng-show="signupForm.password.$error.minlength">
+    Password too short!</span>
+  <span class="validation-error" ng-show="signupForm.password.$error.maxlength">
+    Password too long!</span>
+</div>
+
+</div>
 </div>

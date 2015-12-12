@@ -1,34 +1,33 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-  var getLinks = function () {
+
+  var fetchLinks = function() {
     return $http({
       method: 'GET',
       url: '/api/links'
     })
-    .then(function (urls) {
-      return resp.urls.data;
-      console.log("THis is too much: ", urls.data)
+    .then(function(resp){
+      return resp.data;
     });
+  };
 
-  // var shortenLink = function (url) {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/api/links',
-  //     data: url
-  //   })
-  //   .then(function (urls) {
-  //     return resp.data;
-  //     console.log("THis is too much: ", urls.data)
-  //   });
+ var shortenLink = function(url){
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    })
+    .then(function(resp){
+      console.log('Successfully posted link!', resp);
+    });
+  };
 
-    return {
-      getLinks: getLinks,
-      shortenLink: shortenLink
-    }
-}
+  return {
+    fetchLinks : fetchLinks,
+    shortenLink : shortenLink
+  };
 })
-
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
@@ -64,6 +63,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log("In signout function");
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

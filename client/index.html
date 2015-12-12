@@ -3,17 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <title>Shortly</title>
+    <link href='https://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <base href="/">
   </head>
   <body>
-    <h1>Shortly</h1>
+      <h1>Shortly</h1>
 
     <!-- the ng-view directive is where our templates will be loaded into when navigated to -->
     <div ng-view></div>
 
+    <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-
+    <script src="lib/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="lib/ngFx/dist/ngFx.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app/auth/auth.js"></script>
     <script src="app/links/links.js"></script>
     <script src="app/shorten/shorten.js"></script>
@@ -21,3 +28,4 @@
     <script src="app/app.js"></script>
   </body>
 </html>
+

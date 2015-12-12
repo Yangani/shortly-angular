@@ -1,7 +1,14 @@
-<div id='Shorten'>
-<span>Shorten</span>
-  <form name="linksForm" ng-submit='sendLinks()'>
-    <input type='text' placeholder="Enter url..." ng-model='user.username'>
+<div class='navigation'>
+  <ul>
+    <li><a href='/#links' class='index'>All Links</a></li>
+    <li><a href='/#shorten' class='create'>Shorten</a></li>
+    <li><a href='/#signout' class='signout'>Signout</a></li>
+  </ul>
+</div>
+
+<div id='container'>
+  <form ng-submit="addLink()">
+    <input type="url" placeholder="Enter new link here" ng-model="url">
     <button>Submit</button>
   </form>
 </div>
